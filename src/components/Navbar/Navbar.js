@@ -11,6 +11,9 @@ import {
   NavSubMenuRight,
   Hamburger,
   NavbarButton,
+  MobileMenu,
+  Divider,
+  MobileMenuButton,
 } from "./Navbar.elements";
 
 import { ReactComponent as Logo } from "./logo.svg";
@@ -21,14 +24,43 @@ const Navbar = () => {
   const handleOpen = () => setOpen(!open);
 
   return (
-    <Nav>
-      <NavbarContainer>
-        <NavSubMenuLeft>
-          <NavLogo to="/">
-            <Logo />
-          </NavLogo>
+    <>
+      <Nav>
+        <NavbarContainer>
+          <NavSubMenuLeft>
+            <NavLogo to="/">
+              <Logo />
+            </NavLogo>
 
-          <NavMenu>
+            <NavMenu>
+              <Navitem>
+                <NavLinks to="/">Features</NavLinks>
+              </Navitem>
+
+              <Navitem>
+                <NavLinks to="/">Pricing</NavLinks>
+              </Navitem>
+
+              <Navitem>
+                <NavLinks to="/">Resources</NavLinks>
+              </Navitem>
+            </NavMenu>
+          </NavSubMenuLeft>
+
+          <NavSubMenuRight>
+            <NavbarButton>Login</NavbarButton>
+            <NavbarButton primary>Sign Up</NavbarButton>
+          </NavSubMenuRight>
+
+          <Hamburger onClick={handleOpen}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </Hamburger>
+        </NavbarContainer>
+
+        {open && (
+          <MobileMenu>
             <Navitem>
               <NavLinks to="/">Features</NavLinks>
             </Navitem>
@@ -40,21 +72,20 @@ const Navbar = () => {
             <Navitem>
               <NavLinks to="/">Resources</NavLinks>
             </Navitem>
-          </NavMenu>
-        </NavSubMenuLeft>
 
-        <NavSubMenuRight>
-          <NavbarButton>Login</NavbarButton>
-          <NavbarButton primary>Sign Up</NavbarButton>
-        </NavSubMenuRight>
+            <Divider />
 
-        <Hamburger onClick={handleOpen}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </Hamburger>
-      </NavbarContainer>
-    </Nav>
+            <Navitem>
+              <MobileMenuButton>Login</MobileMenuButton>
+            </Navitem>
+
+            <Navitem>
+              <MobileMenuButton primary>Sign Up</MobileMenuButton>
+            </Navitem>
+          </MobileMenu>
+        )}
+      </Nav>
+    </>
   );
 };
 

@@ -11,12 +11,20 @@ html {
     margin :0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+
+    /* @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+      font-size: 80%;
+    } */
+
+    @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+      font-size: 90%;
+    }
 }
 `;
 
 export const Container = styled.div`
   width: 95%;
-  max-width: 1440px;
+  max-width: ${(props) => props.theme.breakpoints.desktop};
   margin: 0 auto;
 `;
 
@@ -38,7 +46,7 @@ export const Button = styled.button`
       color: #fff;
 
       &:hover {
-        filter: brightness(120%)
+        filter: brightness(120%);
       }
     `}
 `;

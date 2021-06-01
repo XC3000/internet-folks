@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     primary: {
       cyan: "#2acfcf",
+      lightcyan: "##8df2f2",
       dark: "#3b3054",
     },
     secondary: {
@@ -17,7 +18,9 @@ export const theme = {
 
   font: {
     size: {
-      normal: "1.8rem",
+      normal: "1rem",
+      mainheading: "2.5rem",
+      subheading: "1.3rem",
     },
 
     weight: {
@@ -30,6 +33,6 @@ export const theme = {
   breakpoints: {
     mobile: "460px",
     tablet: "768px",
-    desktop: "1100px",
+    desktop: "1200px",
   },
 };
