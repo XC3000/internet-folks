@@ -49,7 +49,7 @@ const Navbar = () => {
 
           <NavSubMenuRight>
             <NavbarButton>Login</NavbarButton>
-            <NavbarButton primary>Sign Up</NavbarButton>
+            <NavbarButton rounded primary>Sign Up</NavbarButton>
           </NavSubMenuRight>
 
           <Hamburger onClick={handleOpen}>
@@ -80,7 +80,7 @@ const Navbar = () => {
             </Navitem>
 
             <Navitem>
-              <MobileMenuButton primary>Sign Up</MobileMenuButton>
+              <MobileMenuButton rounded primary>Sign Up</MobileMenuButton>
             </Navitem>
           </MobileMenu>
         )}

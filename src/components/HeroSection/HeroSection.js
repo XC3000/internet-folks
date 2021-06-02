@@ -21,7 +21,7 @@ const HeroSection = () => {
           links are performing.
         </SubHeading>
 
-        <HeroButton primary>Get Started</HeroButton>
+        <HeroButton rounded primary>Get Started</HeroButton>
       </HeroContent>
 
       <HeroImage>

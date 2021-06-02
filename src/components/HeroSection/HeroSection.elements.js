@@ -8,6 +8,9 @@ export const HeroContainer = styled(Container)`
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     flex-direction: column-reverse;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     gap: 50px;
   }
   ${Container}
@@ -18,7 +21,7 @@ export const HeroContent = styled.div`
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  flex: 1;
+  flex: 2;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     align-items: center;
@@ -26,11 +29,18 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroImage = styled.div`
-  flex: 1;
+  flex: 3;
 
   img {
     width: 100%;
     display: block;
+    position: relative;
+    right: -128px;
+    width: 110%;
+
+    @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+      right: -50px;
+    }
   }
 `;
 

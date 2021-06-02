@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Container, Button } from "../../theme/globalStyles";
 
 import bgmobile from "./bg-shorten-mobile.svg";
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 export const ShortenLinkBg = styled.section`
   background: ${(props) => props.theme.colors.neutral.gray};
-  height: 450px;
   position: relative;
   margin-top: 80px;
 `;
@@ -17,10 +16,7 @@ export const ShotenLinkContainer = styled(Container)`
   align-items: center;
   flex-direction: column;
   padding: 50px 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -80px;
+
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     flex-direction: column;
     gap: 50px;
@@ -31,7 +27,8 @@ export const ShotenLinkContainer = styled(Container)`
 
 export const ShortenLinkForm = styled.form`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  height: 100%;
   justify-content: center;
   gap: 30px;
 
@@ -44,7 +41,7 @@ export const ShortenLinkInput = styled.input`
   flex: 2;
   outline: none;
   border: none;
-  padding: 10px 20px;
+  padding: 1.3rem 20px;
   border-radius: 6px;
   font-size: ${(props) => props.theme.font.size.normal};
   width: 100%;
@@ -67,17 +64,43 @@ export const FormError = styled.p`
 `;
 
 export const ShortenLinkButton = styled(Button)`
+  padding: 1.3rem 3rem;
+  border-radius: 10px;
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 100%;
     padding: 1.5rem;
   }
+
+  ${(props) =>
+    props.copied &&
+    css`
+      background: ${(props) => props.theme.colors.primary.dark};
+    `}
+  ${Button}
+`;
+
+export const CopyLinkButton = styled(Button)`
+  padding: 0.4rem 2rem;
+
+  width: 155px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  ${(props) =>
+    props.copied &&
+    css`
+      background: ${(props) => props.theme.colors.primary.dark};
+    `}
   ${Button}
 `;
 
 export const ShortenBox = styled.div`
-  background-size: auto;
+  background-size: cover;
   background-image: url(${bgdesktop});
-  padding: 60px 30px 40px;
+  padding: 50px 70px 40px;
   border-radius: 10px;
   background-repeat: no-repeat;
 
@@ -85,6 +108,7 @@ export const ShortenBox = styled.div`
     background-image: url(${bgmobile});
     padding: 30px 15px;
     background-position: top right;
+    background-size: auto;
   }
 `;
 
@@ -92,16 +116,24 @@ export const ShortenBoxBackground = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme.colors.primary.dark};
   border-radius: 10px;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -100px;
 `;
 
 export const Box = styled.div`
   width: 100%;
   margin: 0 auto;
+  /* position: relative; */
 `;
 
 export const ShortenLinkList = styled.ul`
   width: 100%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  position: relative;
+  top: -80px;
 `;
 
 export const ShortenLinkItem = styled.li`
@@ -111,7 +143,8 @@ export const ShortenLinkItem = styled.li`
   justify-content: space-between;
   gap: 15px;
   background: #fff;
-  padding: 10px 20px;
+  padding: 0px 20px;
+  margin-bottom: 10px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     flex-direction: column;
@@ -151,7 +184,7 @@ export const Divider = styled.span`
 `;
 
 export const ShortenLinkItemTop = styled.div`
-  padding: 20px 10px;
+  padding: 10px 10px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -166,13 +199,13 @@ export const ShortenLinkItemBottom = styled.div`
   padding: 20px 10px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   width: 100%;
   flex: 1;
   gap: 20px;
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     flex-direction: column;
     align-items: flex-start;
-
     padding: 20px;
   }
 `;

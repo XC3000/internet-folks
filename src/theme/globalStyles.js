@@ -19,7 +19,11 @@ html {
     @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
       font-size: 90%;
     }
-}
+  }
+
+  #root {
+    overflow: hidden;
+  }
 `;
 
 export const Container = styled.div`
@@ -37,7 +41,6 @@ export const Button = styled.button`
   transition: all 0.2s ease-in;
   cursor: pointer;
   color: ${(props) => props.theme.colors.neutral.grayishviolet};
-  border-radius: 25px;
 
   ${(props) =>
     props.primary &&
@@ -48,6 +51,12 @@ export const Button = styled.button`
       &:hover {
         filter: brightness(120%);
       }
+    `}
+
+  ${(props) =>
+    props.rounded &&
+    css`
+      border-radius: 25px;
     `}
 `;
 
