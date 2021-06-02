@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ApiCall from "../../utils/apiCall";
+import copy from "copy-to-clipboard";
 import { v4 as uuidv4 } from "uuid";
 import {
   Box,
@@ -58,6 +59,7 @@ const ShortenLinkSection = () => {
         .then((res) => {
           addLink(res.data.result);
           setLoading(false);
+          setText("");
         })
         .catch((err) => {
           console.error(err);
@@ -71,6 +73,7 @@ const ShortenLinkSection = () => {
     const links = [...shortLinks];
     for (let i = 0; i < links.length; i++) {
       if (links[i].id === id) {
+        copy(links[i].shortLink);
         links[i].copied = true;
       }
     }
@@ -89,6 +92,7 @@ const ShortenLinkSection = () => {
                     type="text"
                     placeholder="Shorten a Link here"
                     onChange={(e) => setText(e.target.value)}
+                    value={text}
                   />
                 </InputWrapper>
 
@@ -102,19 +106,21 @@ const ShortenLinkSection = () => {
 
           <ShortenLinkList>
             {shortLinks.length > 0 &&
-              shortLinks.map((links) => (
-                <ShortenLinkItem>
+              shortLinks.map((links, index) => (
+                <ShortenLinkItem key={index}>
                   <ShortenLinkItemTop>
-                    <MailLink to={links.mainLink}>{links.mainLink}</MailLink>
+                    <MailLink href={links.mainLink} target="_blank">
+                      {links.mainLink}
+                    </MailLink>
                   </ShortenLinkItemTop>
                   <Divider />
                   <ShortenLinkItemBottom>
-                    <ShortenedLink to={links.shortLink}>
+                    <ShortenedLink target="_blank" href={links.shortLink}>
                       {links.shortLink}
                     </ShortenedLink>
                     {links.copied ? (
                       <CopyLinkButton copied primary>
-                        Copied
+                        Copied!
                       </CopyLinkButton>
                     ) : (
                       <CopyLinkButton

@@ -155,7 +155,7 @@ export const ShortenLinkItem = styled.li`
   }
 `;
 
-export const MailLink = styled(Link)`
+export const MailLink = styled.a`
   display: block;
   flex: 2;
   color: ${(props) => props.theme.colors.neutral.varydarkviolet};
@@ -166,7 +166,7 @@ export const ShortenLink = styled(Link)`
   font-size: ${(props) => props.theme.font.size.normal};
 `;
 
-export const ShortenedLink = styled(Link)`
+export const ShortenedLink = styled.a`
   font-size: ${(props) => props.theme.font.size.normal};
 
   display: block;
