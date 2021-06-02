@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ApiCall from "../../utils/apiCall";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -33,7 +33,7 @@ const ShortenLinkSection = () => {
   }, [text]); */
 
   const addLink = (data) => {
-    const { full_share_link, full_short_link } = data;
+    const { full_short_link } = data;
     const newLInk = {
       mainLink: text,
       shortLink: full_short_link,
@@ -48,7 +48,6 @@ const ShortenLinkSection = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(text);
 
     if (text === "") {
       setError("Please add a link");
@@ -57,14 +56,12 @@ const ShortenLinkSection = () => {
       setLoading(true);
       ApiCall.get(`?url=${text}`)
         .then((res) => {
-          console.log(res);
           addLink(res.data.result);
           setLoading(false);
         })
         .catch((err) => {
-          console.log(err);
           console.error(err);
-          setError("Some Error Occurred")
+          setError("Some Error Occurred");
           setLoading(false);
         });
     }
@@ -108,11 +105,13 @@ const ShortenLinkSection = () => {
               shortLinks.map((links) => (
                 <ShortenLinkItem>
                   <ShortenLinkItemTop>
-                    <MailLink>{links.mainLink}</MailLink>
+                    <MailLink to={links.mainLink}>{links.mainLink}</MailLink>
                   </ShortenLinkItemTop>
                   <Divider />
                   <ShortenLinkItemBottom>
-                    <ShortenedLink>{links.shortLink}</ShortenedLink>
+                    <ShortenedLink to={links.shortLink}>
+                      {links.shortLink}
+                    </ShortenedLink>
                     {links.copied ? (
                       <CopyLinkButton copied primary>
                         Copied

@@ -41,7 +41,7 @@ export const Button = styled.button`
   transition: all 0.2s ease-in;
   cursor: pointer;
   color: ${(props) => props.theme.colors.neutral.grayishviolet};
-
+  font-weight: ${(props) => props.theme.font.weight.bold};
   ${(props) =>
     props.primary &&
     css`

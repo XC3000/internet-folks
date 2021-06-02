@@ -6,7 +6,7 @@ import bgdesktop from "./bg-shorten-desktop.svg";
 import { Link } from "react-router-dom";
 
 export const ShortenLinkBg = styled.section`
-  background: ${(props) => props.theme.colors.neutral.gray};
+  background: ${(props) => props.theme.colors.neutral.lightgrey};
   position: relative;
   margin-top: 80px;
 `;
@@ -15,7 +15,7 @@ export const ShotenLinkContainer = styled(Container)`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 50px 0;
+  padding-top: 50px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     flex-direction: column;

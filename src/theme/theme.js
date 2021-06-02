@@ -13,6 +13,7 @@ export const theme = {
       grayishviolet: "#9e9aa7",
       verydarkblue: "#35323e",
       varydarkviolet: "#232127",
+      lightgrey: "#F0F1F6",
     },
   },
 
@@ -21,6 +22,7 @@ export const theme = {
       normal: "1rem",
       mainheading: "2.5rem",
       subheading: "1.3rem",
+      subtext: "1.1rem",
     },
 
     weight: {
